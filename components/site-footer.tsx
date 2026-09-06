@@ -218,9 +218,9 @@ export function HomeFooter() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 w-full md:w-auto"
+          className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2.5 sm:gap-4 w-full md:w-auto text-center sm:text-right"
         >
-          <div className="flex flex-col leading-tight text-right">
+          <div className="flex flex-col leading-tight">
             <span className="text-[8px] font-bold text-[#8D3823] tracking-[0.16em] uppercase">
               DEVELOPED BY
             </span>
@@ -237,29 +237,29 @@ export function HomeFooter() {
               href="https://sdpravinraj.github.io/eportfolio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 sm:w-9.5 sm:h-9.5 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
               title="View ePortfolio"
               aria-label="Pravinraj ePortfolio"
             >
-              <Globe className="h-3.5 w-3.5" />
+              <Globe className="h-4 w-4" />
             </a>
             <a
-              href={links.linkedin}
+              href={links.linkedin || undefined}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 sm:w-9.5 sm:h-9.5 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
               title="LinkedIn"
               aria-label="LinkedIn"
             >
-              <Linkedin className="h-3.5 w-3.5" />
+              <Linkedin className="h-4 w-4" />
             </a>
             <a
-              href={links.email}
-              className="w-9 h-9 sm:w-9.5 sm:h-9.5 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              href={links.email || undefined}
+              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
               title="Email"
               aria-label="Email"
             >
-              <Mail className="h-3.5 w-3.5" />
+              <Mail className="h-4 w-4" />
             </a>
           </div>
         </motion.div>
