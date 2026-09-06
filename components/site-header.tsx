@@ -14,7 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { useAuth } from "@/components/auth-provider";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -50,7 +50,7 @@ export function SiteHeader() {
   const handleSignOut = async () => {
     setShowLogoutConfirm(false);
     await signOut(auth);
-    window.location.href = "/";
+    window.location.href = getAssetPath("/");
   };
 
   const isTeacherPage = pathname === "/dashboard" || pathname === "/login";
@@ -77,7 +77,7 @@ export function SiteHeader() {
               className="flex items-center gap-3 group transition-all duration-300 flex-shrink-0"
             >
               <img
-                src="/image.png"
+                src={getAssetPath("/image.png")}
                 alt="DZM School Logo"
                 className={cn(
                   "w-auto object-contain rounded-full bg-white/95 p-0.5 border flex-shrink-0 transition-all duration-300 group-hover:scale-105 border-[#8D3823]/25 group-hover:border-[#8D3823] group-hover:shadow-[0_0_12px_rgba(141,56,35,0.18)]",

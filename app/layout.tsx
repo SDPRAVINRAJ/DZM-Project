@@ -33,16 +33,19 @@ const notoSerifTamil = Noto_Serif_Tamil({
   display: "swap",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sdpravinraj.github.io/DZM-Project/"),
   title: "DZM தமிழ் மையம்",
   description:
     "Tamil class materials, notes, and competition announcements from SMK Dato' Zulkifli Muhammad. Download notes, view competitions, and learn Tamil.",
   icons: {
     icon: [
-      { url: "/image.png", type: "image/png" },
+      { url: `${basePath}/image.png`, type: "image/png" },
     ],
-    shortcut: "/image.png",
-    apple: "/image.png",
+    shortcut: `${basePath}/image.png`,
+    apple: `${basePath}/image.png`,
   },
   openGraph: {
     title: "DZM தமிழ் மையம்",

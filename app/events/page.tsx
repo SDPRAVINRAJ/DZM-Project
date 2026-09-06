@@ -8,7 +8,7 @@ import {
   List as ListIcon, Filter, ExternalLink, ChevronDown, ChevronUp,
 } from "lucide-react";
 import { getEvents, SchoolEvent } from "@/lib/firestore";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { HomeFooter } from "@/components/site-footer";
 
@@ -234,7 +234,7 @@ export default function StudentEventsPage() {
     <div className="relative flex flex-col justify-between min-h-[100vh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
       {/* ── Background Subtle Watermark Image ── */}
       <img
-        src="/bharathiyar-bg.jpg"
+        src={getAssetPath("/bharathiyar-bg.jpg")}
         alt="Bharathiyar artwork watermark"
         className="fixed inset-0 size-full object-cover object-right pointer-events-none -z-10 opacity-35"
       />

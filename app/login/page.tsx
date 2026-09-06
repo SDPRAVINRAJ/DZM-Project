@@ -8,6 +8,7 @@ import { Mail, Lock, LogIn, Loader2, AlertCircle, ArrowLeft, Eye, EyeOff, Sparkl
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HomeFooter } from "@/components/site-footer";
+import { getAssetPath } from "@/lib/utils";
 
 const EASE_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -74,7 +75,7 @@ export default function LoginPage() {
           x: { duration: 0.4, ease: "easeOut" },
           y: { duration: 0.4, ease: "easeOut" },
         }}
-        src="/bharathiyar-bg.jpg"
+        src={getAssetPath("/bharathiyar-bg.jpg")}
         alt="Bharathiyar artwork watermark"
         className="fixed inset-0 size-full object-cover object-right pointer-events-none -z-10"
       />
@@ -156,7 +157,7 @@ export default function LoginPage() {
               className="inline-block relative mb-3.5"
             >
               <img
-                src="/image.png"
+                src={getAssetPath("/image.png")}
                 alt="DZM School Logo"
                 className="h-16 w-16 object-contain rounded-full bg-white/95 p-1 border border-[#8B2E15]/30 shadow-md mx-auto"
               />

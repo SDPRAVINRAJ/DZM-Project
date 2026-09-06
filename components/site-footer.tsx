@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Mail, Linkedin, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { getAssetPath } from "@/lib/utils";
 
 export function SiteFooter() {
   const pathname = usePathname();
@@ -41,7 +42,7 @@ export function SiteFooter() {
           <div className="flex flex-col items-start gap-3 flex-shrink-0 max-w-[220px]">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative flex-shrink-0 h-11 w-11 rounded-full bg-white/95 p-0.5 border border-gold/30">
-                <img src="/tamil-mozhi-kalagam.jpg" alt="Tamil Mozhi Kalagam logo" className="w-full h-full object-contain rounded-full" />
+                <img src={getAssetPath("/tamil-mozhi-kalagam.jpg")} alt="Tamil Mozhi Kalagam logo" className="w-full h-full object-contain rounded-full" />
               </div>
               <div className="leading-tight">
                 <span className="font-tamil font-extrabold text-cream text-[15px] tracking-tight block">
@@ -164,7 +165,7 @@ export function HomeFooter() {
         className="flex items-center gap-3"
       >
         <img
-          src="/tamil-mozhi-kalagam.jpg"
+          src={getAssetPath("/tamil-mozhi-kalagam.jpg")}
           alt="Tamil Mozhi Kalagam Logo"
           className="h-8 sm:h-9 w-auto object-contain rounded-full bg-white/95 p-0.5 border border-[#8D3823]/25 flex-shrink-0"
         />

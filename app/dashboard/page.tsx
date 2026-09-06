@@ -27,8 +27,8 @@ import {
   uploadFile, deleteFile, generateSmartFileName, buildStoragePath,
 } from "@/lib/storage";
 import { compressFile, formatBytes, CompressionResult } from "@/lib/compression";
-import { normalizeAndValidateDriveUrl } from "@/lib/utils";
-import { cn } from "@/lib/utils";
+import { normalizeAndValidateDriveUrl, cn, getAssetPath } from "@/lib/utils";
+import { generateEventWelcomeContent } from "@/lib/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { HomeFooter } from "@/components/site-footer";
 
@@ -293,7 +293,7 @@ export default function DashboardPage() {
         initial={{ opacity: 0, scale: 1.015 }}
         animate={{ opacity: 0.85, scale: 1.0 }}
         transition={{ duration: 1.0, delay: 0.05, ease: EASE_EXPO }}
-        src="/bharathiyar-bg.jpg"
+        src={getAssetPath("/bharathiyar-bg.jpg")}
         alt="Bharathiyar artwork watermark"
         className="fixed inset-0 size-full object-cover object-right pointer-events-none -z-10"
       />
@@ -2826,24 +2826,19 @@ function EventsTab({
 
     setAiGenerating(true);
     try {
-      const res = await fetch("/api/generate-event-content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: eventType,
-          title: title.trim(),
-          date: date,
-          time: time.trim(),
-          venue: venue.trim(),
-        }),
+      const data = await generateEventWelcomeContent({
+        type: eventType,
+        title: title.trim(),
+        date: date,
+        time: time.trim(),
+        venue: venue.trim(),
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.success || !data.content) {
+      if (!data.success || !data.content) {
         if (data.error && data.error.includes("API key")) {
           showToast("error", "AI சேவை தற்போது இணைக்கப்படவில்லை.");
         } else {
-          showToast("error", "வரவேற்பை உருவாக்க முடியவில்லை. மீண்டும் முயற்சி செய்யவும்.");
+          showToast("error", data.error || "வரவேற்பை உருவாக்க முடியவில்லை. மீண்டும் முயற்சி செய்யவும்.");
         }
         return;
       }

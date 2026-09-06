@@ -1,5 +1,3 @@
-import { NextRequest, NextResponse } from "next/server";
-
 function generateFallbackTamilWelcome(
   type: string,
   title: string,
@@ -10,7 +8,7 @@ function generateFallbackTamilWelcome(
   const isComp = type.includes("போட்டி") || type === "competition";
   const formattedTime = time ? ` ${time}` : "";
   const formattedVenue = venue ? ` ${venue}` : " பள்ளி வளாகத்தில்";
-  
+
   if (isComp) {
     return `அன்பான மாணவச் செல்வங்களே! நமது பள்ளியில் ${date} அன்று${formattedTime}${formattedVenue} மிகச் சிறப்பாக நடைபெறவுள்ள "${title}" போட்டியில் கலந்துகொள்ள உங்களை அன்புடன் அழைக்கிறோம்! 🏆 உங்கள் தனித்துவமான திறமைகளையும் படைப்பாற்றலையும் வெளிப்படுத்த இது ஒரு சிறந்த வாய்ப்பாகும். அனைத்து மாணவர்களும் உற்சாகத்துடன் பங்கேற்று வெற்றி பெற வாழ்த்துகிறோம்! 🌟`;
   }
@@ -18,38 +16,41 @@ function generateFallbackTamilWelcome(
   return `அன்பான மாணவச் செல்வங்களே! நமது பள்ளியில் ${date} அன்று${formattedTime}${formattedVenue} மிக விமரிசையாக நடைபெறவுள்ள "${title}" நிகழ்வில் பங்குபெற உங்களை மகிழ்ச்சியுடன் வரவேற்கிறோம்! 🌟 இந்நிகழ்வு நமது பள்ளி மாணவர்களின் கலை, இலக்கிய மற்றும் கலாச்சாரப் பண்புகளை வளர்க்கும் ஒரு இனிய தளமாகும். அனைவரும் தவறாமல் கலந்துகொண்டு சிறப்பிக்குமாறு அன்போடு கேட்டுக்கொள்கிறோம்! ✨`;
 }
 
-export async function POST(req: NextRequest) {
+export interface GenerateEventContentParams {
+  type: string;
+  title: string;
+  date: string;
+  time?: string;
+  venue?: string;
+}
+
+export async function generateEventWelcomeContent({
+  type,
+  title,
+  date,
+  time = "",
+  venue = "",
+}: GenerateEventContentParams): Promise<{ success: boolean; content: string; error?: string }> {
   try {
-    const body = await req.json().catch(() => null);
-    if (!body) {
-      return NextResponse.json(
-        { success: false, error: "முதலில் தேவையான அனைத்து நிகழ்வு விவரங்களையும் உள்ளிடவும்." },
-        { status: 400 }
-      );
-    }
-
-    const { type, title, date, time, venue } = body;
-
     if (!type || !title || !date) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "முதலில் தேவையான அனைத்து நிகழ்வு விவரங்களையும் உள்ளிடவும்.",
-        },
-        { status: 400 }
-      );
+      return {
+        success: false,
+        content: "",
+        error: "முதலில் தேவையான அனைத்து நிகழ்வு விவரங்களையும் உள்ளிடவும்.",
+      };
     }
 
-    const cleanType = (type.includes("போட்டி") || type === "competition") ? "போட்டி" : "நிகழ்வு";
+    const cleanType = type.includes("போட்டி") || type === "competition" ? "போட்டி" : "நிகழ்வு";
     const cleanTitle = title.trim();
     const cleanDate = date.trim();
     const cleanTime = (time || "").toString().trim();
     const cleanVenue = (venue || "").toString().trim();
 
     const apiKey =
+      process.env.NEXT_PUBLIC_VITE_GEMINI_API_KEY_4 ||
+      process.env.NEXT_PUBLIC_GEMINI_API_KEY ||
       process.env.VITE_GEMINI_API_KEY_4 ||
-      process.env.GEMINI_API_KEY ||
-      process.env.NEXT_PUBLIC_VITE_GEMINI_API_KEY_4;
+      process.env.GEMINI_API_KEY;
 
     const systemPrompt = `நீங்கள் மலேசியப் பள்ளி மாணவர்களுக்காக எழுதும் திறமையான தமிழ் அறிவிப்பு எழுத்தாளர்.
 
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
 
 மாணவர்களுக்கான அழகான வரவேற்பு அறிவிப்பை உருவாக்குக.`;
 
-    // Attempt Gemini API call
+    // If Gemini API key is configured, query Gemini
     if (apiKey) {
       const models = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
       for (const modelName of models) {
@@ -101,11 +102,11 @@ export async function POST(req: NextRequest) {
                 .replace(/^```[\s\S]*?```/g, "")
                 .replace(/[#*`_~]/g, "")
                 .trim();
-              return NextResponse.json({ success: true, content: sanitized });
+              return { success: true, content: sanitized };
             }
           }
         } catch {
-          // Continue to next model or fallback
+          // Fall through to next model or fallback
         }
       }
     }
@@ -119,18 +120,16 @@ export async function POST(req: NextRequest) {
       cleanVenue
     );
 
-    return NextResponse.json({
+    return {
       success: true,
       content: fallbackText,
-    });
+    };
   } catch (error: any) {
     console.error("[AI Generation Error]", error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: "வரவேற்பை உருவாக்க முடியவில்லை. மீண்டும் முயற்சி செய்யவும்.",
-      },
-      { status: 500 }
-    );
+    return {
+      success: false,
+      content: "",
+      error: "வரவேற்பை உருவாக்க முடியவில்லை. மீண்டும் முயற்சி செய்யவும்.",
+    };
   }
 }

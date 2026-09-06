@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { BookOpen, Sparkles } from "lucide-react";
 import { HomeFooter } from "@/components/site-footer";
+import { getAssetPath } from "@/lib/utils";
 
 export default function HomePage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -64,7 +65,7 @@ export default function HomePage() {
       >
         <div className="relative w-full h-full">
           <img
-            src="/bharathiyar-bg.jpg"
+            src={getAssetPath("/bharathiyar-bg.jpg")}
             alt="Tamil poet ink portrait with palm-leaf manuscript and Tamil letterforms"
             width={1920}
             height={1088}
