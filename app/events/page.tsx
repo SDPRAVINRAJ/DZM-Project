@@ -231,7 +231,7 @@ export default function StudentEventsPage() {
   }, [activeModal]);
 
   return (
-    <div className="relative flex flex-col justify-between min-h-[100vh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
+    <div className="relative flex flex-col justify-between min-h-[100svh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
       {/* ── Background Subtle Watermark Image ── */}
       <img
         src={getAssetPath("/bharathiyar-bg.jpg")}
@@ -541,7 +541,7 @@ export default function StudentEventsPage() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.94, opacity: 0, y: 16 }}
               transition={{ duration: 0.3, ease: EASE_EXPO }}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-white border border-slate-200 shadow-2xl p-6 sm:p-8"
+              className="relative w-full max-w-2xl max-h-[90svh] sm:max-h-[90vh] overflow-y-auto rounded-[24px] bg-white border border-slate-200 shadow-2xl p-6 sm:p-8"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}

@@ -64,39 +64,39 @@ export function SiteHeader() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
           scrolled
-            ? "bg-[#FAF7F0]/95 backdrop-blur-md border-b border-[#8D3823]/15 shadow-[0_4px_20px_rgba(141,56,35,0.06)]"
-            : "bg-[#FAF7F0]/85 backdrop-blur-xs border-b border-[#8D3823]/08 shadow-none"
+            ? "bg-[#FAF7F0]/98 backdrop-blur-md border-b border-[#8D3823]/15 shadow-[0_4px_20px_rgba(141,56,35,0.06)]"
+            : "bg-[#FAF7F0]/90 backdrop-blur-xs border-b border-[#8D3823]/08 shadow-none"
         )}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className={cn("flex items-center justify-between transition-all duration-300", scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20")}>
+        <div className="mx-auto max-w-7xl px-3.5 sm:px-6 lg:px-8">
+          <div className={cn("flex items-center justify-between transition-all duration-300", scrolled ? "h-[62px] sm:h-16" : "h-[68px] sm:h-20")}>
             
             {/* ── Brand Logo / Left Section ── */}
             <Link
               href="/"
-              className="flex items-center gap-3 group transition-all duration-300 flex-shrink-0"
+              className="flex items-center gap-2.5 sm:gap-3 group transition-all duration-300 min-w-0 pr-1.5 sm:pr-0"
             >
               <img
                 src={getAssetPath("/image.png")}
                 alt="DZM School Logo"
                 className={cn(
                   "w-auto object-contain rounded-full bg-white/95 p-0.5 border flex-shrink-0 transition-all duration-300 group-hover:scale-105 border-[#8D3823]/25 group-hover:border-[#8D3823] group-hover:shadow-[0_0_12px_rgba(141,56,35,0.18)]",
-                  scrolled ? "h-[34px] sm:h-[38px]" : "h-[40px] sm:h-[46px]"
+                  scrolled ? "h-[36px] sm:h-[38px]" : "h-[40px] sm:h-[46px]"
                 )}
               />
-              <div className="flex flex-col leading-tight justify-center transition-all duration-300">
+              <div className="flex flex-col leading-tight justify-center transition-all duration-300 min-w-0">
                 <span
                   className={cn(
-                    "font-tamil font-bold tracking-tight leading-snug transition-colors duration-300 text-[#1E0B05] group-hover:text-[#8D3823]",
-                    scrolled ? "text-[14px] sm:text-[15.5px]" : "text-[15px] sm:text-[17px]"
+                    "font-tamil font-bold tracking-tight leading-snug transition-colors duration-300 text-[#1E0B05] group-hover:text-[#8D3823] truncate",
+                    scrolled ? "text-[14px] sm:text-[15.5px]" : "text-[14.5px] sm:text-[17px]"
                   )}
                 >
                   DZM தமிழ் மையம்
                 </span>
                 <span
                   className={cn(
-                    "font-semibold uppercase tracking-wider transition-all duration-300 text-[#8D3823]",
-                    scrolled ? "text-[8.5px] sm:text-[9px] mt-0" : "text-[9px] sm:text-[9.5px] mt-0.5"
+                    "font-semibold uppercase tracking-wider transition-all duration-300 text-[#8D3823] truncate max-w-[150px] xs:max-w-[210px] sm:max-w-none",
+                    scrolled ? "text-[8px] sm:text-[9px] mt-0" : "text-[8.5px] sm:text-[9.5px] mt-0.5"
                   )}
                 >
                   SMK DATO&apos; ZULKIFLI MUHAMMAD
@@ -159,13 +159,13 @@ export function SiteHeader() {
               </div>
             </nav>
 
-            {/* ── Mobile Hamburger & Profile Quick Action ── */}
-            <div className="md:hidden flex items-center gap-2">
+            {/* ── Mobile Hamburger & Profile Quick Action (Touch friendly 40-44px) ── */}
+            <div className="md:hidden flex items-center gap-2 flex-shrink-0">
               <Link
                 href={user ? "/dashboard" : "/login"}
                 aria-label="User Account"
                 className={cn(
-                  "relative inline-flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200",
+                  "relative inline-flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200",
                   isTeacherPage
                     ? "bg-[#8D3823] text-white shadow-xs border border-[#8D3823]"
                     : "bg-[#FFFCF6] text-[#8D3823] border border-[#8D3823]/30"
@@ -175,80 +175,92 @@ export function SiteHeader() {
               </Link>
               
               <button
-                className="flex items-center justify-center p-2 rounded-xl text-[#1E0B05] hover:text-[#8D3823] hover:bg-[#8D3823]/10 transition-colors cursor-pointer"
+                className="flex items-center justify-center w-10 h-10 rounded-xl text-[#1E0B05] hover:text-[#8D3823] hover:bg-[#8D3823]/10 border border-[#8D3823]/20 bg-[#FFFCF6] transition-colors cursor-pointer"
                 onClick={() => setOpen(!open)}
                 aria-label="Toggle menu"
               >
-                {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
 
           </div>
         </div>
 
-        {/* ── Mobile Drawer Menu ── */}
+        {/* ── Mobile Drawer Menu with Backdrop ── */}
         <AnimatePresence>
           {open && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden border-t border-[#8D3823]/15 bg-[#FAF7F0]/98 backdrop-blur-2xl shadow-lg overflow-hidden"
-            >
-              <nav className="flex flex-col space-y-2 p-5 font-tamil" aria-label="Mobile Navigation">
-                {navLinks.map((link) => {
-                  const active = pathname === link.href;
-                  const Icon = link.icon;
-                  return (
+            <>
+              {/* Dim Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setOpen(false)}
+                className="fixed inset-0 top-[62px] sm:top-16 bg-black/40 backdrop-blur-xs md:hidden z-40"
+              />
+
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="md:hidden relative z-50 border-t border-[#8D3823]/15 bg-[#FAF7F0] shadow-2xl max-h-[calc(100svh-4.5rem)] overflow-y-auto"
+              >
+                <nav className="flex flex-col space-y-1.5 p-4 sm:p-5 font-tamil" aria-label="Mobile Navigation">
+                  {navLinks.map((link) => {
+                    const active = pathname === link.href;
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "flex items-center gap-3 px-4 py-3 rounded-xl text-[14.5px] font-semibold transition-all duration-200 min-h-[46px]",
+                          active
+                            ? "bg-[#8D3823] text-white shadow-xs font-bold"
+                            : "text-[#2D160C] hover:bg-[#8D3823]/10 hover:text-[#8D3823]"
+                        )}
+                      >
+                        <Icon className={cn("h-4.5 w-4.5", active ? "text-white" : "text-[#8D3823]")} />
+                        <span>{link.label}</span>
+                      </Link>
+                    );
+                  })}
+
+                  <div className="pt-3 mt-2 border-t border-[#8D3823]/12 flex items-center justify-between gap-3">
                     <Link
-                      key={link.href}
-                      href={link.href}
+                      href={user ? "/dashboard" : "/login"}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200",
-                        active
-                          ? "bg-[#8D3823] text-white shadow-xs"
-                          : "text-[#2D160C] hover:bg-[#8D3823]/10 hover:text-[#8D3823]"
+                        "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-xs sm:text-sm min-h-[46px] transition-all duration-200",
+                        isTeacherPage
+                          ? "bg-[#8D3823] text-white shadow-xs font-bold"
+                          : "bg-[#FFFCF6] text-[#8D3823] border border-[#8D3823]/30 hover:bg-[#8D3823]/10"
                       )}
                     >
-                      <Icon className={cn("h-4.5 w-4.5", active ? "text-white" : "text-[#8D3823]")} />
-                      <span>{link.label}</span>
+                      <CircleUserRound className="h-4.5 w-4.5" />
+                      <span>{user ? "ஆசிரியர் கணக்கு" : "ஆசிரியர் உள்நுழைவு"}</span>
                     </Link>
-                  );
-                })}
 
-                <div className="pt-3 border-t border-[#8D3823]/12 flex items-center justify-between px-2">
-                  <Link
-                    href={user ? "/dashboard" : "/login"}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl font-medium text-xs transition-all duration-200",
-                      isTeacherPage
-                        ? "bg-[#8D3823] text-white shadow-xs"
-                        : "bg-[#FFFCF6] text-[#8D3823] border border-[#8D3823]/30 hover:bg-[#8D3823]/10"
+                    {user && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setOpen(false);
+                          setShowLogoutConfirm(true);
+                        }}
+                        className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs sm:text-sm font-bold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 rounded-xl transition-colors cursor-pointer min-h-[46px]"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        <span>வெளியேறு</span>
+                      </button>
                     )}
-                  >
-                    <CircleUserRound className="h-4.5 w-4.5" />
-                    <span>{user ? "ஆசிரியர் கணக்கு" : "கணக்கு"}</span>
-                  </Link>
-
-                  {user && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setOpen(false);
-                        setShowLogoutConfirm(true);
-                      }}
-                      className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 rounded-xl transition-colors cursor-pointer"
-                    >
-                      <LogOut className="h-3.5 w-3.5" />
-                      <span>வெளியேறு</span>
-                    </button>
-                  )}
-                </div>
-              </nav>
-            </motion.div>
+                  </div>
+                </nav>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </motion.header>

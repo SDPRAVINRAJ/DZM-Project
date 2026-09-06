@@ -469,7 +469,7 @@ export default function MaterialsPage() {
   }, []);
 
   return (
-    <div className="relative flex flex-col justify-between min-h-[100vh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
+    <div className="relative flex flex-col justify-between min-h-[100svh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
       {/* ── Background Subtle Watermark Image ── */}
       <img
         src={getAssetPath("/bharathiyar-bg.jpg")}
@@ -900,7 +900,7 @@ export default function MaterialsPage() {
           onClick={() => setPreview(null)}
         >
           <div
-            className="w-full max-w-4xl h-[85vh] bg-white rounded-2xl border border-slate-200 flex flex-col overflow-hidden shadow-2xl"
+            className="w-full max-w-4xl h-[90svh] sm:h-[85vh] bg-white rounded-2xl border border-slate-200 flex flex-col overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}

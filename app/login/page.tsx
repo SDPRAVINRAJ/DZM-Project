@@ -58,7 +58,7 @@ export default function LoginPage() {
   return (
     <div
       onMouseMove={handlePageMouseMove}
-      className="relative flex flex-col justify-between min-h-[100vh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#F6F5F2] font-tamil text-[#18080A] overflow-hidden select-none"
+      className="relative flex flex-col justify-between min-h-[100svh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#F6F5F2] font-tamil text-[#18080A] overflow-hidden select-none"
     >
       {/* ── Continuous Bharathiyar Background Image (Faint background presence on far right) ── */}
       <motion.img
@@ -144,22 +144,22 @@ export default function LoginPage() {
       </div>
 
       {/* ── Main Content Container (Centered Layout) ── */}
-      <div className="flex-1 flex flex-col justify-center items-center px-4 py-8 sm:py-12 my-auto">
-        <div className="w-full max-w-[460px] mx-auto flex flex-col items-center">
+      <div className="flex-1 flex flex-col justify-center items-center px-4 py-8 sm:py-12 my-auto w-full max-w-full">
+        <div className="w-full max-w-[440px] mx-auto flex flex-col items-center">
 
           {/* ── 1. School Logo & Header Text (Centered) ── */}
-          <div className="text-center mb-6 w-full">
+          <div className="text-center mb-5 sm:mb-6 w-full">
             {/* School Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.88 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1, ease: EASE_EXPO }}
-              className="inline-block relative mb-3.5"
+              className="inline-block relative mb-3"
             >
               <img
                 src={getAssetPath("/image.png")}
                 alt="DZM School Logo"
-                className="h-16 w-16 object-contain rounded-full bg-white/95 p-1 border border-[#8B2E15]/30 shadow-md mx-auto"
+                className="h-14 w-14 sm:h-16 sm:w-16 object-contain rounded-full bg-white/95 p-1 border border-[#8B2E15]/30 shadow-md mx-auto"
               />
               <motion.div
                 animate={{ rotate: 360 }}
@@ -173,7 +173,7 @@ export default function LoginPage() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.18, ease: EASE_EXPO }}
-              className="text-[10.5px] font-semibold tracking-[0.34em] uppercase text-[#7E2612] font-jakarta mb-1"
+              className="text-[10px] sm:text-[10.5px] font-semibold tracking-[0.28em] sm:tracking-[0.34em] uppercase text-[#7E2612] font-jakarta mb-1"
             >
               DZM · Teacher Portal
             </motion.p>
@@ -216,7 +216,7 @@ export default function LoginPage() {
             transition={{ duration: 0.7, delay: 0.42, ease: EASE_EXPO }}
             className="w-full"
           >
-            <div className="relative w-full p-7 sm:p-9 rounded-2xl border border-[#8B2E15]/14 bg-[#FFFDF9]/95 shadow-[0_8px_32px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#7E2612]/40 hover:shadow-[0_20px_50px_rgba(139,46,21,0.12)] overflow-hidden">
+            <div className="relative w-full p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#8B2E15]/14 bg-[#FFFDF9]/95 shadow-[0_8px_32px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#7E2612]/40 hover:shadow-[0_20px_50px_rgba(139,46,21,0.12)] overflow-hidden">
               
               {/* Subtle Top Accent Bar */}
               <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-[#7E2612] via-[#A63820] to-[#C17B3E]" />

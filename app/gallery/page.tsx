@@ -247,7 +247,7 @@ export default function GalleryPage() {
   }, [lightbox]);
 
   return (
-    <div className="relative flex flex-col justify-between min-h-[100vh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
+    <div className="relative flex flex-col justify-between min-h-[100svh] -mt-16 sm:-mt-20 pt-16 sm:pt-20 bg-[#FAF9F6] font-tamil text-[#0F172A] overflow-hidden select-none">
       {/* ── Background Subtle Watermark Image ── */}
       <img
         src={getAssetPath("/bharathiyar-bg.jpg")}
