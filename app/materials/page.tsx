@@ -490,22 +490,22 @@ export default function MaterialsPage() {
       <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-9 pb-12 sm:pb-16 space-y-7 sm:space-y-8">
 
         {/* ── 1. Learning Resources Hero Banner ── */}
-        <section className="relative p-6 sm:p-8 rounded-[24px] bg-gradient-to-r from-[#EBF5FF] via-[#F8FBFF] to-[#EDFAF4] border border-[#D5E8FA] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
+        <section className="relative p-5 sm:p-8 rounded-[20px] sm:rounded-[24px] bg-gradient-to-r from-[#EBF5FF] via-[#F8FBFF] to-[#EDFAF4] border border-[#D5E8FA] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
           {/* Subtle Inner Accent Ring */}
-          <div className="absolute inset-2.5 rounded-[18px] border border-white/60 pointer-events-none" />
+          <div className="absolute inset-2.5 rounded-[16px] sm:rounded-[18px] border border-white/60 pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-xl text-left">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 max-w-xl text-left w-full">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white/90 border border-[#C5E1FA] shadow-2xs">
                 <div className="h-2 w-2 rounded-full bg-[#378BE7] animate-pulse" />
-                <span className="text-[11px] font-bold text-[#2874D4] font-jakarta tracking-wider uppercase">
+                <span className="text-[10px] sm:text-[11px] font-bold text-[#2874D4] font-jakarta tracking-wider uppercase">
                   DZM DIGITAL LIBRARY
                 </span>
               </div>
 
-              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-2xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2.5">
-                <div className="h-10 w-10 rounded-2xl bg-[#DDF5EC] border border-[#A7E5D1] text-[#169C87] flex items-center justify-center flex-shrink-0 shadow-2xs">
-                  <BookOpen className="h-5.5 w-5.5" />
+              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2 sm:gap-2.5">
+                <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-[#DDF5EC] border border-[#A7E5D1] text-[#169C87] flex items-center justify-center flex-shrink-0 shadow-2xs">
+                  <BookOpen className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
                 </div>
                 <span>கற்றல் வளங்கள்</span>
               </h1>

@@ -87,7 +87,7 @@ export default function HomePage() {
       </motion.div>
 
       {/* Mobile / Tablet Lightweight Artwork Watermark (Never covers text) */}
-      <div className="block md:hidden absolute -right-6 top-12 w-[260px] xs:w-[300px] h-[320px] pointer-events-none opacity-25 overflow-hidden">
+      <div className="block md:hidden absolute -right-6 top-8 w-[230px] xs:w-[270px] h-[290px] pointer-events-none opacity-20 overflow-hidden">
         <img
           src={getAssetPath("/bharathiyar-bg.jpg")}
           alt="Tamil poet artwork watermark"
@@ -96,7 +96,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(circle at 75% 25%, transparent 20%, #FAF7F0 85%)",
+            background: "radial-gradient(circle at 75% 25%, transparent 15%, #FAF7F0 82%)",
           }}
         />
       </div>
@@ -126,9 +126,9 @@ export default function HomePage() {
       </motion.div>
 
       {/* ── Hero Content Section ── */}
-      <section className="relative isolate flex-1 flex flex-col justify-center overflow-hidden py-6 sm:py-10 lg:py-14">
+      <section className="relative isolate flex-1 flex flex-col justify-center overflow-hidden py-5 sm:py-10 lg:py-14">
         <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 sm:px-8 lg:px-12">
-          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl w-full">
             
             {/* Eyebrow badge — Line expands + Book icon + Text */}
             <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
@@ -151,14 +151,14 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] sm:tracking-[0.28em] text-[#8D3823] uppercase truncate max-w-[230px] xs:max-w-none"
+                className="text-[9.5px] sm:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.28em] text-[#8D3823] uppercase truncate max-w-[210px] xs:max-w-none"
               >
                 Tamil Language • Literature • Culture
               </motion.p>
             </div>
 
             {/* Main Title — Balanced 4-line structure with unbreakable "கலை &" */}
-            <h1 className="mt-3.5 sm:mt-5 font-serif-tamil text-[clamp(32px,8vw,56px)] leading-[1.18] sm:leading-[1.16] font-extrabold tracking-tight text-[#1E0B05]">
+            <h1 className="mt-3.5 sm:mt-5 font-serif-tamil text-[clamp(28px,7.5vw,56px)] leading-[1.18] sm:leading-[1.16] font-extrabold tracking-tight text-[#1E0B05]">
               {/* Line 1 */}
               <motion.span
                 initial={{ opacity: 0, y: 12 }}
@@ -206,7 +206,7 @@ export default function HomePage() {
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.5, delay: 0.52, ease: "easeOut" }}
               style={{ transformOrigin: "left" }}
-              className="mt-4 sm:mt-6 h-[1.5px] w-20 sm:w-28 bg-[linear-gradient(90deg,#8D3823_0%,#B85338_60%,transparent_100%)] rounded-full"
+              className="mt-3.5 sm:mt-6 h-[1.5px] w-20 sm:w-28 bg-[linear-gradient(90deg,#8D3823_0%,#B85338_60%,transparent_100%)] rounded-full"
             />
 
             {/* Description — Readable line-height & highlighted key terms */}
@@ -214,7 +214,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-3.5 sm:mt-5 max-w-xl font-serif-tamil text-[15px] sm:text-[17.5px] leading-[1.7] sm:leading-[1.8] text-[#382017]"
+              className="mt-3 sm:mt-5 max-w-xl font-serif-tamil text-[14.5px] sm:text-[17.5px] leading-[1.65] sm:leading-[1.8] text-[#382017]"
             >
               தமிழ் என் மொழி மட்டுமல்ல —{" "}
               <span className="font-semibold text-[#8D3823]">என் சிந்தனையின் உயிர்</span>.
@@ -227,12 +227,12 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#8D3823]/12 max-w-md flex items-start gap-2.5 opacity-90"
+              className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#8D3823]/12 max-w-md flex items-start gap-2.5 opacity-90"
             >
               <Sparkles className="h-3.5 w-3.5 text-[#8D3823]/60 flex-shrink-0 mt-0.5" />
-              <p className="font-serif-tamil text-[12.5px] sm:text-[13.5px] italic text-[#6A4030] leading-relaxed">
+              <p className="font-serif-tamil text-[12px] sm:text-[13.5px] italic text-[#6A4030] leading-relaxed">
                 “யாதும் ஊரே யாவரும் கேளிர்”{" "}
-                <span className="text-[11px] sm:text-[11.5px] not-italic text-[#8D3823]/80 block sm:inline sm:ml-1 font-medium">
+                <span className="text-[10.5px] sm:text-[11.5px] not-italic text-[#8D3823]/80 block xs:inline xs:ml-1 font-medium">
                   — கணியன் பூங்குன்றனார்
                 </span>
               </p>

@@ -255,7 +255,7 @@ export default function LoginPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="teacher@example.com"
-                      className="w-full pl-10 pr-3.5 py-3 rounded-xl bg-[#FFFCF6] border border-[#8B2E15]/20 text-[#18080A] placeholder-[#6A4030]/45 text-sm font-medium font-jakarta focus:outline-none focus:border-[#7E2612] focus:ring-2 focus:ring-[#7E2612]/15 transition-all duration-200"
+                      className="w-full pl-10 pr-3.5 py-3 rounded-xl bg-[#FFFCF6] border border-[#8B2E15]/20 text-[#18080A] placeholder-[#6A4030]/45 text-sm font-medium font-jakarta focus:outline-none focus:border-[#7E2612] focus:ring-2 focus:ring-[#7E2612]/15 transition-all duration-200 min-h-[46px]"
                     />
                   </div>
                 </div>
@@ -274,12 +274,12 @@ export default function LoginPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-10 py-3 rounded-xl bg-[#FFFCF6] border border-[#8B2E15]/20 text-[#18080A] placeholder-[#6A4030]/45 text-sm font-medium font-jakarta focus:outline-none focus:border-[#7E2612] focus:ring-2 focus:ring-[#7E2612]/15 transition-all duration-200"
+                      className="w-full pl-10 pr-11 py-3 rounded-xl bg-[#FFFCF6] border border-[#8B2E15]/20 text-[#18080A] placeholder-[#6A4030]/45 text-sm font-medium font-jakarta focus:outline-none focus:border-[#7E2612] focus:ring-2 focus:ring-[#7E2612]/15 transition-all duration-200 min-h-[46px]"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#6A4030]/70 hover:text-[#7E2612] transition-colors p-1 cursor-pointer"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 text-[#6A4030]/70 hover:text-[#7E2612] transition-colors p-2.5 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
                       title={showPassword ? "Hide password" : "Show password"}
                     >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -291,7 +291,7 @@ export default function LoginPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group/btn relative w-full flex items-center justify-center gap-2 text-white font-jakarta font-bold text-sm py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#7E2612]/20 active:scale-[0.98] cursor-pointer overflow-hidden mt-2"
+                  className="group/btn relative w-full flex items-center justify-center gap-2 text-white font-jakarta font-bold text-sm py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#7E2612]/20 active:scale-[0.98] cursor-pointer overflow-hidden mt-2 min-h-[48px]"
                   style={{
                     background: "linear-gradient(135deg, #7E2612 0%, #8B2E10 60%, #A63820 100%)",
                   }}

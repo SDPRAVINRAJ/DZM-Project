@@ -74,29 +74,29 @@ export function SiteHeader() {
             {/* ── Brand Logo / Left Section ── */}
             <Link
               href="/"
-              className="flex items-center gap-2.5 sm:gap-3 group transition-all duration-300 min-w-0 pr-1.5 sm:pr-0"
+              className="flex items-center gap-2 sm:gap-3 group transition-all duration-300 min-w-0 pr-1 sm:pr-0"
             >
               <img
                 src={getAssetPath("/image.png")}
                 alt="DZM School Logo"
                 className={cn(
                   "w-auto object-contain rounded-full bg-white/95 p-0.5 border flex-shrink-0 transition-all duration-300 group-hover:scale-105 border-[#8D3823]/25 group-hover:border-[#8D3823] group-hover:shadow-[0_0_12px_rgba(141,56,35,0.18)]",
-                  scrolled ? "h-[36px] sm:h-[38px]" : "h-[40px] sm:h-[46px]"
+                  scrolled ? "h-[34px] sm:h-[38px]" : "h-[38px] sm:h-[46px]"
                 )}
               />
               <div className="flex flex-col leading-tight justify-center transition-all duration-300 min-w-0">
                 <span
                   className={cn(
                     "font-tamil font-bold tracking-tight leading-snug transition-colors duration-300 text-[#1E0B05] group-hover:text-[#8D3823] truncate",
-                    scrolled ? "text-[14px] sm:text-[15.5px]" : "text-[14.5px] sm:text-[17px]"
+                    scrolled ? "text-[13px] sm:text-[15.5px]" : "text-[13.5px] sm:text-[17px]"
                   )}
                 >
                   DZM தமிழ் மையம்
                 </span>
                 <span
                   className={cn(
-                    "font-semibold uppercase tracking-wider transition-all duration-300 text-[#8D3823] truncate max-w-[150px] xs:max-w-[210px] sm:max-w-none",
-                    scrolled ? "text-[8px] sm:text-[9px] mt-0" : "text-[8.5px] sm:text-[9.5px] mt-0.5"
+                    "font-semibold uppercase tracking-wider transition-all duration-300 text-[#8D3823] truncate max-w-[130px] xxs:max-w-[160px] xs:max-w-[210px] sm:max-w-none",
+                    scrolled ? "text-[7.5px] sm:text-[9px] mt-0" : "text-[8px] sm:text-[9.5px] mt-0.5"
                   )}
                 >
                   SMK DATO&apos; ZULKIFLI MUHAMMAD
@@ -159,13 +159,13 @@ export function SiteHeader() {
               </div>
             </nav>
 
-            {/* ── Mobile Hamburger & Profile Quick Action (Touch friendly 40-44px) ── */}
-            <div className="md:hidden flex items-center gap-2 flex-shrink-0">
+            {/* ── Mobile Hamburger & Profile Quick Action (Touch friendly 44px min) ── */}
+            <div className="md:hidden flex items-center gap-1.5 xs:gap-2 flex-shrink-0">
               <Link
                 href={user ? "/dashboard" : "/login"}
                 aria-label="User Account"
                 className={cn(
-                  "relative inline-flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200",
+                  "relative inline-flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-200 active:scale-95",
                   isTeacherPage
                     ? "bg-[#8D3823] text-white shadow-xs border border-[#8D3823]"
                     : "bg-[#FFFCF6] text-[#8D3823] border border-[#8D3823]/30"
@@ -175,7 +175,7 @@ export function SiteHeader() {
               </Link>
               
               <button
-                className="flex items-center justify-center w-10 h-10 rounded-xl text-[#1E0B05] hover:text-[#8D3823] hover:bg-[#8D3823]/10 border border-[#8D3823]/20 bg-[#FFFCF6] transition-colors cursor-pointer"
+                className="flex items-center justify-center w-11 h-11 rounded-xl text-[#1E0B05] hover:text-[#8D3823] hover:bg-[#8D3823]/10 border border-[#8D3823]/20 bg-[#FFFCF6] transition-colors cursor-pointer active:scale-95"
                 onClick={() => setOpen(!open)}
                 aria-label="Toggle menu"
               >
@@ -205,7 +205,7 @@ export function SiteHeader() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="md:hidden relative z-50 border-t border-[#8D3823]/15 bg-[#FAF7F0] shadow-2xl max-h-[calc(100svh-4.5rem)] overflow-y-auto"
+                className="md:hidden relative z-50 border-t border-[#8D3823]/15 bg-[#FAF7F0] shadow-2xl max-h-[calc(100svh-4.25rem)] overflow-y-auto overscroll-contain"
               >
                 <nav className="flex flex-col space-y-1.5 p-4 sm:p-5 font-tamil" aria-label="Mobile Navigation">
                   {navLinks.map((link) => {
@@ -217,30 +217,30 @@ export function SiteHeader() {
                         href={link.href}
                         onClick={() => setOpen(false)}
                         className={cn(
-                          "flex items-center gap-3 px-4 py-3 rounded-xl text-[14.5px] font-semibold transition-all duration-200 min-h-[46px]",
+                          "flex items-center gap-3 px-4 py-3.5 rounded-xl text-[14.5px] font-semibold transition-all duration-200 min-h-[48px] active:scale-[0.98]",
                           active
                             ? "bg-[#8D3823] text-white shadow-xs font-bold"
                             : "text-[#2D160C] hover:bg-[#8D3823]/10 hover:text-[#8D3823]"
                         )}
                       >
-                        <Icon className={cn("h-4.5 w-4.5", active ? "text-white" : "text-[#8D3823]")} />
+                        <Icon className={cn("h-4.5 w-4.5 flex-shrink-0", active ? "text-white" : "text-[#8D3823]")} />
                         <span>{link.label}</span>
                       </Link>
                     );
                   })}
 
-                  <div className="pt-3 mt-2 border-t border-[#8D3823]/12 flex items-center justify-between gap-3">
+                  <div className="pt-3 mt-2 border-t border-[#8D3823]/12 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2.5">
                     <Link
                       href={user ? "/dashboard" : "/login"}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-xs sm:text-sm min-h-[46px] transition-all duration-200",
+                        "flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-xs sm:text-sm min-h-[48px] transition-all duration-200 active:scale-[0.98]",
                         isTeacherPage
                           ? "bg-[#8D3823] text-white shadow-xs font-bold"
                           : "bg-[#FFFCF6] text-[#8D3823] border border-[#8D3823]/30 hover:bg-[#8D3823]/10"
                       )}
                     >
-                      <CircleUserRound className="h-4.5 w-4.5" />
+                      <CircleUserRound className="h-4.5 w-4.5 flex-shrink-0" />
                       <span>{user ? "ஆசிரியர் கணக்கு" : "ஆசிரியர் உள்நுழைவு"}</span>
                     </Link>
 
@@ -251,9 +251,9 @@ export function SiteHeader() {
                           setOpen(false);
                           setShowLogoutConfirm(true);
                         }}
-                        className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs sm:text-sm font-bold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 rounded-xl transition-colors cursor-pointer min-h-[46px]"
+                        className="flex items-center justify-center gap-1.5 px-4 py-3 text-xs sm:text-sm font-bold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 rounded-xl transition-colors cursor-pointer min-h-[48px] active:scale-[0.98]"
                       >
-                        <LogOut className="h-4 w-4" />
+                        <LogOut className="h-4 w-4 flex-shrink-0" />
                         <span>வெளியேறு</span>
                       </button>
                     )}

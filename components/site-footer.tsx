@@ -168,7 +168,7 @@ export function HomeFooter() {
   }, []);
 
   return (
-    <footer className="w-full bg-[#FAF7F0]/95 backdrop-blur-md border-t border-[#8D3823]/15 px-4 sm:px-8 lg:px-12 py-4 sm:py-4 select-none z-20 relative">
+    <footer className="w-full bg-[#FAF7F0]/95 backdrop-blur-md border-t border-[#8D3823]/15 px-4 sm:px-8 lg:px-12 py-5 sm:py-4 select-none z-20 relative">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
         
         {/* Left: Logo & Tamil Mozhi Kalagam Branding */}
@@ -176,7 +176,7 @@ export function HomeFooter() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-3 text-center sm:text-left"
+          className="flex items-center gap-3 text-center sm:text-left justify-center sm:justify-start"
         >
           <img
             src={getAssetPath("/tamil-mozhi-kalagam.jpg")}
@@ -198,17 +198,17 @@ export function HomeFooter() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center font-serif-tamil select-none py-1 px-3 rounded-xl bg-[#8D3823]/06 border border-[#8D3823]/10"
+          className="flex items-center font-serif-tamil select-none py-1.5 px-4 rounded-xl bg-[#8D3823]/06 border border-[#8D3823]/10 max-w-full overflow-x-auto"
         >
-          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C]">
+          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C] whitespace-nowrap">
             மொழி
           </span>
           <span className="text-[#8D3823] font-bold text-[10px] sm:text-[11px] px-2.5 sm:px-3 select-none">·</span>
-          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C]">
+          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C] whitespace-nowrap">
             மரபு
           </span>
           <span className="text-[#8D3823] font-bold text-[10px] sm:text-[11px] px-2.5 sm:px-3 select-none">·</span>
-          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C]">
+          <span className="text-[13px] sm:text-[14.5px] tracking-wider font-semibold cursor-default text-[#2D160C] whitespace-nowrap">
             அறிவு
           </span>
         </motion.div>
@@ -218,9 +218,9 @@ export function HomeFooter() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2.5 sm:gap-4 w-full md:w-auto text-center sm:text-right"
+          className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-3 sm:gap-4 w-full md:w-auto text-center sm:text-right"
         >
-          <div className="flex flex-col leading-tight">
+          <div className="flex flex-col leading-tight items-center sm:items-end">
             <span className="text-[8px] font-bold text-[#8D3823] tracking-[0.16em] uppercase">
               DEVELOPED BY
             </span>
@@ -232,12 +232,12 @@ export function HomeFooter() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <a
               href="https://sdpravinraj.github.io/eportfolio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xs"
               title="View ePortfolio"
               aria-label="Pravinraj ePortfolio"
             >
@@ -247,7 +247,7 @@ export function HomeFooter() {
               href={links.linkedin || undefined}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xs"
               title="LinkedIn"
               aria-label="LinkedIn"
             >
@@ -255,7 +255,7 @@ export function HomeFooter() {
             </a>
             <a
               href={links.email || undefined}
-              className="w-10 h-10 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-2xs"
+              className="w-11 h-11 sm:w-10 sm:h-10 rounded-full border border-[#8D3823]/25 bg-white text-[#8D3823] hover:border-[#8D3823] hover:bg-[#8D3823]/10 flex items-center justify-center transition-all duration-200 active:scale-95 shadow-2xs"
               title="Email"
               aria-label="Email"
             >

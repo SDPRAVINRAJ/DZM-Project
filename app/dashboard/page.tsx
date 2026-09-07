@@ -345,10 +345,10 @@ export default function DashboardPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: EASE_EXPO }}
-            className="flex flex-row items-center justify-between gap-4 sm:gap-6 p-5 sm:p-7 rounded-[24px] bg-gradient-to-r from-[#EFF6FF] via-[#FFFDF7] to-[#FFF4EA] border border-slate-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.03)] relative overflow-hidden"
+            className="flex flex-row items-center justify-between gap-3 sm:gap-6 p-4 sm:p-7 rounded-[20px] sm:rounded-[24px] bg-gradient-to-r from-[#EFF6FF] via-[#FFFDF7] to-[#FFF4EA] border border-slate-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.03)] relative overflow-hidden"
           >
             {/* Inner Printed Frame Border */}
-            <div className="absolute inset-2.5 rounded-[18px] border border-slate-200/50 pointer-events-none" />
+            <div className="absolute inset-2.5 rounded-[16px] sm:rounded-[18px] border border-slate-200/50 pointer-events-none" />
 
             {/* Left-Aligned Welcome Section */}
             <div className="relative z-10 space-y-1.5 max-w-xl">
@@ -356,11 +356,11 @@ export default function DashboardPage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05, ease: EASE_EXPO }}
-                className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] font-serif-tamil leading-tight tracking-tight flex items-center gap-2.5"
+                className="text-xl sm:text-3xl font-extrabold text-[#0F172A] font-serif-tamil leading-tight tracking-tight flex items-center gap-2 sm:gap-2.5"
               >
                 <span>வணக்கம் ஆசிரியரே!</span>
                 <motion.span
-                  className="inline-block origin-[70%_70%] select-none text-2xl sm:text-3xl"
+                  className="inline-block origin-[70%_70%] select-none text-xl sm:text-3xl"
                   initial={{ rotate: 0 }}
                   animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
                   transition={{ duration: 1.1, delay: 0.2, ease: "easeInOut", repeat: 0 }}
@@ -380,7 +380,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Right: Educational Art + Quote + Sign-out Button */}
-            <div className="relative z-10 flex items-center gap-4 sm:gap-5 flex-shrink-0">
+            <div className="relative z-10 flex items-center gap-3 sm:gap-5 flex-shrink-0">
               {/* Desktop Educational Quote & Flat Vector Art */}
               <div className="hidden md:flex items-center gap-3 pr-2 border-r border-slate-200/70">
                 <div className="text-right">
@@ -408,7 +408,7 @@ export default function DashboardPage() {
           </motion.div>
 
           {/* ── Dashboard Statistics Counter Cards ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5">
             {[
               {
                 id: "materials" as Tab,
@@ -449,7 +449,7 @@ export default function DashboardPage() {
                   activeIcon: "bg-[#E85D5D] text-white border-[#E85D5D] shadow-xs scale-105",
                   inactiveIcon: "bg-[#FFE8E8] text-[#E85D5D] border-[#FFC8C8] group-hover:bg-[#E85D5D] group-hover:text-white",
                   activeText: "text-[#E85D5D]",
-                  hoverBorder: "hover:border-[#E85D5D]/40 hover:bg-[#FFF8F8]",
+                  hoverBorder: "hover:border-[#E85D5D]/40 hover:bg-[#FFFCFC]",
                 },
               },
             ].map((stat, idx) => {
@@ -463,7 +463,7 @@ export default function DashboardPage() {
                   transition={{ duration: 0.45, delay: 0.1 + idx * 0.08, ease: EASE_EXPO }}
                   onClick={() => setTab(stat.id)}
                   className={cn(
-                    "group relative p-5 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden select-none",
+                    "group relative p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden select-none active:scale-[0.99]",
                     active
                       ? stat.theme.activeCard
                       : cn("bg-white/95 border-slate-200/90 shadow-2xs hover:shadow-md hover:-translate-y-1", stat.theme.hoverBorder)
@@ -480,14 +480,14 @@ export default function DashboardPage() {
                     </div>
 
                     <div className={cn(
-                      "p-3 rounded-xl border transition-all duration-300",
+                      "p-2.5 sm:p-3 rounded-xl border transition-all duration-300",
                       active ? stat.theme.activeIcon : stat.theme.inactiveIcon
                     )}>
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#64748B]">
+                  <div className="pt-2.5 sm:pt-3 mt-2.5 sm:mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#64748B]">
                     <span>{stat.sub}</span>
                     <ArrowRight className={cn(
                       "h-3.5 w-3.5 transition-transform duration-250",
@@ -526,7 +526,7 @@ export default function DashboardPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: EASE_EXPO }}
-            className="flex items-center gap-2 p-1.5 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs overflow-x-auto"
+            className="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-2xl bg-white/95 border border-slate-200/90 shadow-2xs overflow-x-auto"
           >
             {([
               {
@@ -570,14 +570,14 @@ export default function DashboardPage() {
                   key={t.id}
                   onClick={() => setTab(t.id)}
                   className={cn(
-                    "relative flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-tamil transition-all duration-250 cursor-pointer outline-none select-none focus-visible:ring-2 focus-visible:ring-[#378BE7]",
+                    "relative flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-tamil transition-all duration-250 cursor-pointer outline-none select-none min-h-[44px] min-w-[120px] xs:min-w-0 focus-visible:ring-2 focus-visible:ring-[#378BE7] active:scale-[0.98]",
                     active ? t.activeClass : t.inactiveClass
                   )}
                 >
-                  <Icon className={cn("h-4 w-4", active ? "text-white" : t.iconColor)} />
-                  <span>{t.label}</span>
+                  <Icon className={cn("h-4 w-4 flex-shrink-0", active ? "text-white" : t.iconColor)} />
+                  <span className="truncate">{t.label}</span>
                   <span className={cn(
-                    "px-2 py-0.5 rounded-full text-[10.5px] font-bold font-jakarta transition-colors",
+                    "px-2 py-0.5 rounded-full text-[10.5px] font-bold font-jakarta transition-colors flex-shrink-0",
                     active ? t.badgeActive : t.badgeInactive
                   )}>
                     {t.count}

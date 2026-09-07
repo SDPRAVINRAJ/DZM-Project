@@ -268,22 +268,22 @@ export default function GalleryPage() {
       <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-8 pb-12 sm:pb-16 space-y-6 sm:space-y-7">
 
         {/* ── 1. Top Gallery Hero Banner ── */}
-        <section className="relative p-6 sm:p-8 rounded-[24px] bg-gradient-to-r from-[#EBF5FF] via-[#F8FBFF] to-[#F3F0FF] border border-[#D5E8FA] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
+        <section className="relative p-5 sm:p-8 rounded-[20px] sm:rounded-[24px] bg-gradient-to-r from-[#EBF5FF] via-[#F8FBFF] to-[#F3F0FF] border border-[#D5E8FA] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
           {/* Subtle Inner Accent Ring */}
-          <div className="absolute inset-2.5 rounded-[18px] border border-white/60 pointer-events-none" />
+          <div className="absolute inset-2.5 rounded-[16px] sm:rounded-[18px] border border-white/60 pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-xl text-left">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 max-w-xl text-left w-full">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white/90 border border-[#C5E1FA] shadow-2xs">
                 <div className="h-2 w-2 rounded-full bg-[#378BE7] animate-pulse" />
-                <span className="text-[11px] font-bold text-[#2874D4] font-jakarta tracking-wider uppercase">
+                <span className="text-[10px] sm:text-[11px] font-bold text-[#2874D4] font-jakarta tracking-wider uppercase">
                   DZM · புகைப்படங்கள்
                 </span>
               </div>
 
-              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-2xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2.5">
-                <div className="h-10 w-10 rounded-2xl bg-[#EAF4FF] border border-[#C5E1FA] text-[#378BE7] flex items-center justify-center flex-shrink-0 shadow-2xs">
-                  <Camera className="h-5.5 w-5.5" />
+              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2 sm:gap-2.5">
+                <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-[#EAF4FF] border border-[#C5E1FA] text-[#378BE7] flex items-center justify-center flex-shrink-0 shadow-2xs">
+                  <Camera className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
                 </div>
                 <span>நிகழ்வுகளின் புகைப்படங்கள்</span>
               </h1>
@@ -325,7 +325,7 @@ export default function GalleryPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="px-3 py-2 rounded-xl bg-[#F8FAFC] border border-slate-200 text-xs font-bold text-[#0F172A] focus:outline-none focus:border-[#378BE7] cursor-pointer"
+              className="px-3 py-2 rounded-xl bg-[#F8FAFC] border border-slate-200 text-xs font-bold text-[#0F172A] focus:outline-none focus:border-[#378BE7] cursor-pointer min-h-[38px] sm:min-h-0"
             >
               <option value="newest">புதியவை முதலில்</option>
               <option value="alpha">அகரவரிசை (A-Z)</option>
@@ -336,7 +336,7 @@ export default function GalleryPage() {
               <button
                 onClick={() => setViewMode("grid")}
                 className={cn(
-                  "p-1.5 rounded-lg transition-all cursor-pointer",
+                  "p-2 sm:p-1.5 rounded-lg transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center",
                   viewMode === "grid"
                     ? "bg-white text-[#378BE7] shadow-2xs font-bold"
                     : "text-slate-500 hover:text-slate-900"
@@ -348,7 +348,7 @@ export default function GalleryPage() {
               <button
                 onClick={() => setViewMode("list")}
                 className={cn(
-                  "p-1.5 rounded-lg transition-all cursor-pointer",
+                  "p-2 sm:p-1.5 rounded-lg transition-all cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center",
                   viewMode === "list"
                     ? "bg-white text-[#378BE7] shadow-2xs font-bold"
                     : "text-slate-500 hover:text-slate-900"
@@ -456,7 +456,7 @@ export default function GalleryPage() {
           >
             {/* Close Button (Top-Right) */}
             <button
-              className="absolute top-5 right-5 z-30 p-2.5 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg"
+              className="absolute top-3 right-3 sm:top-5 sm:right-5 z-40 p-2.5 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg active:scale-95"
               onClick={closeLightbox}
               aria-label="Close lightbox"
             >
@@ -467,14 +467,14 @@ export default function GalleryPage() {
             {lightbox.albums.length > 1 && (
               <>
                 <button
-                  className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg"
+                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-40 p-2.5 sm:p-3 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg active:scale-95"
                   onClick={e => { e.stopPropagation(); prev(); }}
                   aria-label="Previous album"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
-                  className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg"
+                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40 p-2.5 sm:p-3 rounded-full border border-white/20 bg-slate-900/80 text-white hover:bg-[#378BE7] hover:border-[#378BE7] transition-all duration-200 cursor-pointer shadow-lg active:scale-95"
                   onClick={e => { e.stopPropagation(); next(); }}
                   aria-label="Next album"
                 >
@@ -490,20 +490,20 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.28, ease: EASE_EXPO }}
-              className="flex flex-col items-center gap-3.5 max-h-[92vh] max-w-[92vw] z-20"
+              className="flex flex-col items-center gap-3 max-h-[92svh] max-w-[94vw] z-20 overflow-y-auto px-2"
               onClick={e => e.stopPropagation()}
             >
-              <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black">
+              <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black flex-shrink-0">
                 <img
                   src={lightbox.albums[lightbox.index].coverUrl}
                   alt={lightbox.albums[lightbox.index].title}
-                  className="max-h-[68vh] max-w-[88vw] object-contain block"
+                  className="max-h-[55svh] sm:max-h-[68vh] max-w-[88vw] object-contain block"
                 />
               </div>
 
               {/* Caption & Action Bar */}
-              <div className="text-center px-4 max-w-xl space-y-2">
-                <p className="font-serif-tamil font-bold text-lg text-white tracking-wide leading-snug">
+              <div className="text-center px-2 sm:px-4 max-w-xl space-y-1.5 sm:space-y-2">
+                <p className="font-serif-tamil font-bold text-base sm:text-lg text-white tracking-wide leading-snug">
                   {lightbox.albums[lightbox.index].title}
                 </p>
 
@@ -520,7 +520,7 @@ export default function GalleryPage() {
                       href={lightbox.albums[lightbox.index].driveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#438BE5] to-[#3B82F6] hover:from-[#327CD9] hover:to-[#2563EB] text-white font-tamil font-bold text-xs shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#438BE5] to-[#3B82F6] hover:from-[#327CD9] hover:to-[#2563EB] text-white font-tamil font-bold text-xs shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer min-h-[44px] active:scale-[0.98]"
                     >
                       <Images className="h-4 w-4" />
                       <span>அனைத்துப் படங்களையும் காண்க</span>
@@ -529,7 +529,7 @@ export default function GalleryPage() {
                   </div>
                 )}
 
-                <div className="flex items-center justify-center gap-3 text-[11px] font-bold tracking-widest uppercase font-jakarta text-[#93C5FD] pt-1">
+                <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] font-bold tracking-widest uppercase font-jakarta text-[#93C5FD] pt-1">
                   <span>DZM · புகைப்படங்கள்</span>
                   {lightbox.albums.length > 1 && (
                     <>

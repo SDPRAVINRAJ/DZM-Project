@@ -252,22 +252,22 @@ export default function StudentEventsPage() {
       <div className="flex-1 flex flex-col max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-8 pb-12 sm:pb-16 space-y-6 sm:space-y-7">
 
         {/* ── 1. Compact Events Hero Banner ── */}
-        <section className="relative p-6 sm:p-8 rounded-[24px] bg-gradient-to-r from-[#FFF0F0] via-[#FFF8F2] to-[#FFF0DF] border border-[#FFD8D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
+        <section className="relative p-5 sm:p-8 rounded-[20px] sm:rounded-[24px] bg-gradient-to-r from-[#FFF0F0] via-[#FFF8F2] to-[#FFF0DF] border border-[#FFD8D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] overflow-hidden">
           {/* Subtle Inner Accent Ring */}
-          <div className="absolute inset-2.5 rounded-[18px] border border-white/60 pointer-events-none" />
+          <div className="absolute inset-2.5 rounded-[16px] sm:rounded-[18px] border border-white/60 pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-xl text-left">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 max-w-xl text-left w-full">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white/90 border border-[#FFCCD2] shadow-2xs">
                 <div className="h-2 w-2 rounded-full bg-[#E86868] animate-pulse" />
-                <span className="text-[11px] font-bold text-[#E86868] font-jakarta tracking-wider uppercase">
+                <span className="text-[10px] sm:text-[11px] font-bold text-[#E86868] font-jakarta tracking-wider uppercase">
                   DZM · நிகழ்வுகள் & போட்டிகள்
                 </span>
               </div>
 
-              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-2xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2.5">
-                <div className="h-10 w-10 rounded-2xl bg-[#FFE4E6] border border-[#FFCCD2] text-[#E86868] flex items-center justify-center flex-shrink-0 shadow-2xs">
-                  <CalendarDays className="h-5.5 w-5.5" />
+              <h1 className="font-serif-tamil font-extrabold text-[#0F172A] text-xl sm:text-3xl lg:text-[2.2rem] leading-tight flex items-center gap-2 sm:gap-2.5">
+                <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-[#FFE4E6] border border-[#FFCCD2] text-[#E86868] flex items-center justify-center flex-shrink-0 shadow-2xs">
+                  <CalendarDays className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
                 </div>
                 <span>வரவிருக்கும் நிகழ்வுகள் மற்றும் போட்டிகள்</span>
               </h1>
@@ -293,7 +293,7 @@ export default function StudentEventsPage() {
             <button
               onClick={() => setFilterType("all")}
               className={cn(
-                "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap",
+                "px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap min-h-[38px] sm:min-h-0",
                 filterType === "all"
                   ? "bg-white text-[#4F46E5] shadow-2xs font-extrabold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
@@ -306,7 +306,7 @@ export default function StudentEventsPage() {
             <button
               onClick={() => setFilterType("events")}
               className={cn(
-                "inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap",
+                "inline-flex items-center gap-1.5 px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap min-h-[38px] sm:min-h-0",
                 filterType === "events"
                   ? "bg-white text-[#E86868] shadow-2xs font-extrabold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
@@ -319,7 +319,7 @@ export default function StudentEventsPage() {
             <button
               onClick={() => setFilterType("competitions")}
               className={cn(
-                "inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap",
+                "inline-flex items-center gap-1.5 px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer select-none whitespace-nowrap min-h-[38px] sm:min-h-0",
                 filterType === "competitions"
                   ? "bg-white text-[#E99A3E] shadow-2xs font-extrabold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
